@@ -1,23 +1,23 @@
 # 10sec-Language-Translation-into-English
 # This python script will translate a 10 second clip of most languages (supported by Whisper by OpenAI) into English. The translation command is set to translate Japanese at the moment.
 
-# Import appropiate packages
+// Import appropiate packages
 import sounddevice as sd
 import numpy as np
 import wave
 
-# Settings
+// Settings
 duration = 10  # seconds
 filename = "japanesetest.wav"
 samplerate = 44100  # CD quality
 
-# Prompt the user to speak to the recording device.
+// Prompt the user to speak to the recording device.
 print(f"🎙️ Recording for {duration} seconds... Speak now!")
 recording = sd.rec(int(duration * samplerate), samplerate=samplerate, channels=1, dtype='int16')
 sd.wait()
 print(f"✅ Done! Saved as '{filename}'")
 
-# Save as WAV
+// Save as WAV
 with wave.open(filename, 'w') as wf:
     wf.setnchannels(1)
     wf.setsampwidth(2)  # 16-bit audio = 2 bytes
